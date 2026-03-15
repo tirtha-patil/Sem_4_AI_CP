@@ -1,0 +1,264 @@
+/* GLOBAL */
+
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+
+  background-image:url("https://images-assets.nasa.gov/image/PIA23764/PIA23764~orig.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+
+  color:white;
+}
+
+
+/* DARK OVERLAY */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:-1;
+}
+
+
+/* MAIN LAYOUT */
+
+.container{
+  padding:60px;
+}
+
+
+/* GLASS PANEL */
+
+.left-panel{
+
+  width:420px;
+
+  padding:30px;
+
+  border-radius:15px;
+
+  background:rgba(0,0,0,0.35);
+
+  backdrop-filter:blur(8px);
+
+}
+
+
+/* TITLE */
+
+h1{
+  font-size:50px;
+}
+
+
+/* SELECTOR */
+
+select{
+  padding:8px;
+  border-radius:6px;
+  background:#1b263b;
+  color:white;
+  border:none;
+}
+
+
+/* SPEED SLIDER */
+
+.speed-control{
+  margin:15px 0;
+}
+
+.speed-control label{
+  display:block;
+  margin-bottom:5px;
+}
+
+
+/* BUTTON */
+
+button{
+  margin-top:20px;
+
+  padding:12px 25px;
+
+  border-radius:10px;
+
+  border:none;
+
+  background:linear-gradient(45deg,#1f6feb,#4fa3ff);
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+
+/* GRID */
+
+.grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(5,70px);
+
+  gap:10px;
+
+  margin-top:25px;
+
+}
+
+
+/* GRID CELLS */
+
+.cell{
+
+  width:70px;
+
+  height:70px;
+
+  border-radius:12px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:rgba(255,255,255,0.85);
+
+  transition:0.25s;
+
+}
+
+.cell:hover{
+
+  transform:scale(1.05);
+
+}
+
+
+/* TERRAIN */
+
+.empty{
+
+  background:#d1d5db;
+
+}
+
+.obstacle{
+
+  background:#444;
+
+}
+
+.goal{
+
+  background:#2ea043;
+
+}
+
+
+/* SEARCH VISUALIZATION */
+
+.visited{
+
+  background:#3498db;
+
+}
+
+.path{
+
+  background:yellow;
+
+}
+
+
+/* ROVER ICON */
+
+.rover-icon{
+
+  width:42px;
+
+  animation:roverMove 0.6s ease infinite;
+
+}
+
+
+/* ROVER MOVEMENT ANIMATION */
+
+@keyframes roverMove{
+
+  0%{ transform:rotate(-3deg); }
+
+  50%{ transform:rotate(3deg); }
+
+  100%{ transform:rotate(-3deg); }
+
+}
+
+
+/* RESULTS PANEL */
+
+.results{
+
+  margin-top:20px;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  background:rgba(0,0,0,0.45);
+
+  backdrop-filter:blur(10px);
+
+}
+
+
+/* MARS DUST ANIMATION */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:100%;
+
+  background-image:
+  radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+
+  background-size:3px 3px;
+
+  animation:dustMove 60s linear infinite;
+
+  pointer-events:none;
+
+}
+
+@keyframes dustMove{
+
+  from{
+
+    transform:translateY(0);
+
+  }
+
+  to{
+
+    transform:translateY(-1000px);
+
+  }
+
+}
