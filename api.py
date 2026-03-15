@@ -1,8 +1,17 @@
 from fastapi import FastAPI, Query
 from backend.environment import MarsEnvironment
 from backend.agent import RoverAgent
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Rover AI API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
